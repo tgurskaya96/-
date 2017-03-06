@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+	<link href="/css/home.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -77,8 +78,28 @@
                 </div>
             </div>
         </nav>
+<div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Categories</div>
 
+                <div class="panel-body">
+				<form action ="{{asset('/home/subscribe')}}" method="post">
+					{{csrf_field()}}
+                    @foreach($cats as $one)
+					<div>
+					{{$one->name}}
+					<input type="checkbox" name="{{$one->id}}" class="right"/>
+					</div>
+					@endforeach
+					<input type="submit" class="btn btn-default btn-block btn-xs" value="Subscribe" />
+					</form>
+                </div>
+				
+            </div>
+</div>
+<div class="col-md-9">
         @yield('content')
+</div>
     </div>
 
     <!-- Scripts -->
