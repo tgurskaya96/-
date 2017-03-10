@@ -32,10 +32,23 @@ class HomeController extends Controller
 	public function postSubscribe(Requests\SubscribeRequest $r)
     {
         //dd($r->all());
-		$r['user_id']= Auth::user()->id;
-		$r['body']='-';
-		unset($r['_token']);
-		subscribe::create($r->all());
+		
+		//subscribe::create($r->all());
+		$obj=new subscribe;
+		$obj->user_id = Auth::user()->id;
+		$arr=[];
+		foreach ($r->all() as $key=>$value){
+			$id=(int)$key;
+			if($id>0){
+				$arr[]=$id;
+			}
+		}
+		$body=serialize($arr);
+		
+		$obj->body = $body;
+		$obj->email="";
+		$obj->type="";
+		$obj->save();
 		return redirect('home');
     }
 }
