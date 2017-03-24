@@ -17,6 +17,9 @@ class CreateProductsTable extends Migration {
         Schema::create('products',function(Blueprint $table){
             $table->increments("id");
             $table->string("name");
+			$table->string("country");
+			$table->string("price");
+			$table->string("dateOfEvent");
             $table->text("body")->nullable();
             $table->string("picture")->nullable();
             $table->enum("showhide", ["show", "hide"])->nullable();

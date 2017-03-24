@@ -24,7 +24,28 @@
         {!! Form::text('name', old('name'), array('class'=>'form-control')) !!}
         
     </div>
-</div><div class="form-group">
+</div>
+<div class="form-group">
+    {!! Form::label('country', 'country', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('country', old('country'), array('class'=>'form-control')) !!}
+        
+    </div>
+</div>
+<div class="form-group">
+    {!! Form::label('price', 'price', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('price', old('price'), array('class'=>'form-control')) !!}
+    </div>
+</div>
+<div class="form-group">
+    {!! Form::label('dateOfEvent', 'dateOfEvent', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::text('dateOfEvent', old('dateOfEvent'), array('class'=>'form-control')) !!}
+    </div>
+</div>
+
+<div class="form-group">
     {!! Form::label('body', 'body', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::textarea('body', old('body'), array('class'=>'form-control ')) !!}

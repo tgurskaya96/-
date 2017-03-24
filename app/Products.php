@@ -23,6 +23,9 @@ class Products extends Model {
     
     protected $fillable = [
           'name',
+		  'country',
+          'price',
+          'dateOfEvent',
           'body',
           'picture',
           'showhide',

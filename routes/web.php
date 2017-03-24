@@ -19,5 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'BaseController@getIndex');
+Route::get('/{id}', 'ProductController@getIndex');
 
 Auth::routes();
