@@ -86,9 +86,11 @@
 				<form action ="{{asset('/home/subscribe')}}" method="post">
 					{{csrf_field()}}
                     @foreach($cats as $one)
+					
 					<div>
 					{{$one->name}}
-					<input type="checkbox" name="{{$one->id}}" class="right"/>
+					<input type="checkbox" name="{{$one->id}}" class="right" {{(isset($arr[$one->id]))?'checked':''}}	/>
+						
 					</div>
 					@endforeach
 					<input type="submit" class="btn btn-default btn-block btn-xs" value="Subscribe" />
