@@ -7,7 +7,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+				@if($tovs)
+                  @foreach ($tovs as $one)
+uu
+				 @endforeach
+				 @endif
                 </div>
             </div>
         </div>

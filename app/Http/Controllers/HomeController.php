@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\subscribe;
 use Auth;
+use App\Products;
 
 class HomeController extends Controller
 {
@@ -26,16 +27,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+		$obj=subscribe::where('user_id',Auth::user()->id)->first();
+		if(!$obj){
+			$obj=new subscribe;
+		}
+		$arr=unserialize($obj->body);
+		
+		if($arr){
+		$tovs=[];
+			foreach($arr as $one){
+				if(isset($one)){
+			$tovs[]=Products::where('categories_id',$one)->get();
+			}
+			}
+		}
+		else{
+			$tovs=new Products;
+		}
+		$products=[];
+		foreach($tovs as $key=>$value){
+			$products=Products::find($value->id);
+		}
+		dd($products);
+		return view('home')->with('tovs',$tovs);
     }
 	
 	public function postSubscribe(Requests\SubscribeRequest $r)
     {
-        //dd($r->all());
-		//subscribe::create($r->all());
 		unset($r['_token']);
-		//$obj=new subscribe;
-		//$obj->user_id = Auth::user()->id;
 		$arr=[];
 		foreach ($r->all() as $key=>$value){
 			$id=(int)$key;
@@ -48,13 +67,8 @@ class HomeController extends Controller
 		}
 		$body=serialize($arr);
 
-		
-	//	$arr_r['user_id']=Auth::user()->id;
-//		$arr_r['body']=$body;
-	//	$arr_r['email']=$r['email'];
-	//	$arr_r['status']='-';
 		$obj=subscribe::where('user_id',Auth::user()->id)->first();
-		//dd($arr_r);
+		
 		if(isset($obj->id)){
 			$obj2=subscribe::where('user_id',Auth::user()->id);
 			//$obj2->user_id=Auth::user()->id;
@@ -73,10 +87,7 @@ class HomeController extends Controller
 		   $obj2->email='-';
 			$obj2->save();
 		}
-		//$obj->body = $body;
-	//	$obj->email="";
-	//	$obj->type="";
-	//	$obj->save();
+
 		return redirect('home');
     }
 }
