@@ -71,6 +71,9 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+									<li>
+                                        <a href="{{ url('/home') }}">Home</a>                                    
+                                    </li>
                                 </ul>
                             </li>
                         @endif
@@ -88,9 +91,10 @@
                     @foreach($cats as $one)
 					
 					<div>
+					<a href="{{asset('/catalog/'.$one->id)}}">
 					{{$one->name}}
 					<input type="checkbox" name="{{$one->id}}" class="right" {{(isset($arr[$one->id]))?'checked':''}}	/>
-						
+						</a>
 					</div>
 					@endforeach
 					<input type="submit" class="btn btn-default btn-block btn-xs" value="Subscribe" />

@@ -32,23 +32,18 @@ class HomeController extends Controller
 			$obj=new subscribe;
 		}
 		$arr=unserialize($obj->body);
-		
 		if($arr){
-		$tovs=[];
+		$tovs=collect();
 			foreach($arr as $one){
 				if(isset($one)){
-			$tovs[]=Products::where('categories_id',$one)->get();
+			$products=Products::where('categories_id',$one)->get();
+			$tovs=$tovs->merge($products);
 			}
 			}
 		}
 		else{
 			$tovs=new Products;
 		}
-		$products=[];
-		foreach($tovs as $key=>$value){
-			$products=Products::find($value->id);
-		}
-		dd($products);
 		return view('home')->with('tovs',$tovs);
     }
 	
