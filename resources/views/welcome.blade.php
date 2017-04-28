@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Концертная зона</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #FFAD73;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -50,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #00A08A;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -69,17 +69,18 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Моя страница</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Войти</a>
+                        <a href="{{ url('/register') }}">Зарегистрироваться</a>
                     @endif
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+				<img src="logo.jpg">
+                    Концертная зона
                 </div>
 
                 <div class="links">

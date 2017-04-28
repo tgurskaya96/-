@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-
+use App\subscribe;
+use App\Products;
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +27,18 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+		Products::created(function($t){
+			$id=$t->id;
+			$all=subscribe::where('type','-')->get();
+			foreach($all as $one){
+			$arr=unserialize($one->body);
+			foreach($arr as $two){
+				if($two==$t->categories_id)
+				mail($one->email,'Новый товар','Добавлен новый товар');
+			}
+			}
+			//dd($t);
+		});
 
         //
     }

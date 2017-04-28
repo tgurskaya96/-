@@ -51,8 +51,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/login') }}">Войти</a></li>
+                            <li><a href="{{ url('/register') }}">Зарегистрироваться</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -64,7 +64,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Выйти
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -72,8 +72,13 @@
                                         </form>
                                     </li>
 									<li>
-                                        <a href="{{ url('/home') }}">Home</a>                                    
+                                        <a href="{{ url('/home') }}">Моя страница</a>                                    
                                     </li>
+									 @if (Auth::user()->role_id==1)
+									<li>
+                                        <a href="{{ url('/admin') }}">Страница администратора</a>                                    
+                                    </li>
+									@endif
                                 </ul>
                             </li>
                         @endif
@@ -83,7 +88,7 @@
         </nav>
 <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Categories</div>
+                <div class="panel-heading">Стили</div>
 
                 <div class="panel-body">
 				<form action ="{{asset('/home/subscribe')}}" method="post">
@@ -91,13 +96,13 @@
                     @foreach($cats as $one)
 					
 					<div>
-					<a href="{{asset('/catalog/'.$one->id)}}">
+					<a href="{{asset('/catalog/'.$one->id)}}" class="btn btn-info btn-block">
 					{{$one->name}}
 					<input type="checkbox" name="{{$one->id}}" class="right" {{(isset($arr[$one->id]))?'checked':''}}	/>
 						</a>
 					</div>
 					@endforeach
-					<input type="submit" class="btn btn-default btn-block btn-xs" value="Subscribe" />
+					<input type="submit" class="btn btn-default btn-block " value="Подписаться" />
 					</form>
                 </div>
 				

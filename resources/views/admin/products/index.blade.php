@@ -16,10 +16,10 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>name</th>
-						<th>country</th>
-						<th>price</th>
-						<th>dateOfEvent</th>
+                        <th>название</th>
+						<th>место</th>
+						<th>цена</th>
+						<th>дата</th>
 <th>picture</th>
 <th>showhide</th>
 <th>user_id</th>
