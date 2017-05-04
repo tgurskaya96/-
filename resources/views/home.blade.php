@@ -3,10 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Твои музыкальные события</div>
-
-                <div class="panel-body">
+            <div class="panel panel-default" style="background:#6ACD95; color:#B4F63D">
+                <div class="panel-heading" style="background:#DDA798">Твои музыкальные события</div>
+                <div class="panel-body" >
 				@if($tovs)
                   @foreach ($tovs as $one)
 				  <div class="col-md-6">

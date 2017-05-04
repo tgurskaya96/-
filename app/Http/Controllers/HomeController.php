@@ -32,8 +32,8 @@ class HomeController extends Controller
 			$obj=new subscribe;
 		}
 		$arr=unserialize($obj->body);
-		if($arr){
 		$tovs=collect();
+		if($arr){
 			foreach($arr as $one){
 				if(isset($one)){
 			$products=Products::where('categories_id',$one)->get();
@@ -41,9 +41,7 @@ class HomeController extends Controller
 			}
 			}
 		}
-		else{
-			$tovs=new Products;
-		}
+	
 		return view('home')->with('tovs',$tovs);
     }
 	

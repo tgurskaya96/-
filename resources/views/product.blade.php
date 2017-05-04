@@ -2,9 +2,9 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{$y->name}}</div>
-                <div class="panel-body">
+            <div class="panel panel-default" style="background:#6ACD95">
+                <div class="panel-heading " style="background:#DDA798; color:#636b6f">{{$y->name}}</div>
+                <div class="panel-body"> 
             Описание: {!!$y->body!!}<br>
 			Цена:{!!$y->price!!}<br>
 			Место:	{!!$y->counrty!!}<br>

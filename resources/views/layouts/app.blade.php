@@ -21,11 +21,13 @@
         ]) !!};
     </script>
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body style="
+    background: #9CDEA8;
+">
+    <div >
+        <nav class="navbar navbar-default navbar-static-top" style="background:#DDA798">
+            <div class="container ">
+                <div class="navbar-header" >
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -87,14 +89,12 @@
             </div>
         </nav>
 <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Стили</div>
-
+            <div class="panel panel-default" style="background:#6ACD95">
+                <div class="panel-heading" style="background:#DDA798; color:#636b6f"><h1>Стили<h1></div>
                 <div class="panel-body">
 				<form action ="{{asset('/home/subscribe')}}" method="post">
 					{{csrf_field()}}
                     @foreach($cats as $one)
-					
 					<div>
 					<a href="{{asset('/catalog/'.$one->id)}}" class="btn btn-info btn-block">
 					{{$one->name}}

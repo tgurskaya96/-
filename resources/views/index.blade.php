@@ -2,16 +2,13 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Добро пожаловать!</div>
+            <div class="panel panel-default" style="background:#6ACD95">
+                <div class="panel-heading" style="background:#DDA798">Добро пожаловать!</div>
 				  <div class="panel-body">
               	  <p class="text-info">Надеемся, данный сайт поможет тебе узнать о последних концертах. У тебя есть возможность подписаться на рассылку о концертах групп и исполнителей твоих любимых стилей.</p>
 				  @foreach ($tovars as $one)
 				  <div class="col-md-6">
-				  
 				  <h2><a href="{{asset ($one->id)}}"class="btn btn-info">
-				  
-				  
 				  {{$one->name}}</a></h2>
 				  <h2>Место:{{$one->country}}</h2>
 				  <h2>Цена: {{$one->price}}</h2>
