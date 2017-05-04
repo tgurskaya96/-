@@ -7,7 +7,7 @@
                 <div class="panel-body"> 
             Описание: {!!$y->body!!}<br>
 			Цена:{!!$y->price!!}<br>
-			Место:	{!!$y->counrty!!}<br>
+			Место:	{!!$y->country!!}<br>
 			Дата и время	{!!$y->dateOfEvent!!}<br>
 				@if($y->picture != '')<img src="{{ asset('uploads') . '/'.  $y->picture }}">@endif
                 </div>
