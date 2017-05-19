@@ -22,10 +22,10 @@
     </script>
 </head>
 <body style="
-    background: #9CDEA8;
+    background: #d9de5e;
 ">
     <div >
-        <nav class="navbar navbar-default navbar-static-top" style="background:#DDA798">
+        <nav class="navbar navbar-default navbar-static-top" style="background:#46a8a8">
             <div class="container ">
                 <div class="navbar-header" >
 
@@ -89,8 +89,8 @@
             </div>
         </nav>
 <div class="col-md-3">
-            <div class="panel panel-default" style="background:#6ACD95">
-                <div class="panel-heading" style="background:#DDA798; color:#636b6f"><h1>Стили<h1></div>
+            <div class="panel panel-default" style="background:#a8c7cb">
+                <div class="panel-heading" style="background:#46a8a8; color:#512324"><h1>Стили<h1></div>
                 <div class="panel-body">
 				<form action ="{{asset('/home/subscribe')}}" method="post">
 					{{csrf_field()}}

@@ -2,8 +2,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default" style="background:#6ACD95">
-                <div class="panel-heading" style="background:#DDA798">Добро пожаловать!</div>
+            <div class="panel panel-default" style="background:#a8c7cb">
+                <div class="panel-heading" style="background:#46a8a8">Добро пожаловать!</div>
 				  <div class="panel-body">
               	  <p class="text-info">Надеемся, данный сайт поможет тебе узнать о последних концертах. У тебя есть возможность подписаться на рассылку о концертах групп и исполнителей твоих любимых стилей.</p>
 				  @foreach ($tovars as $one)
